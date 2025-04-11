@@ -1,10 +1,9 @@
-import { Tabs } from "expo-router";
+import { Tabs, useRouter } from "expo-router";
 import React from "react";
 import { Platform } from "react-native";
 
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-
 import { HapticTab } from "@/components/HapticTab";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import TabBarBackground from "@/components/ui/TabBarBackground";
@@ -12,6 +11,8 @@ import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
 
 export default function TabLayout() {
+	const router = useRouter();
+
 	const colorScheme = useColorScheme();
 
 	return (
@@ -25,7 +26,9 @@ export default function TabLayout() {
 				tabBarShowLabel: false,
 				headerTransparent: true,
 				tabBarTranslucent: true,
-				headerTintColor: '#fff',
+				headerTintColor: "#fff",
+				headerTitleAlign: "center",
+
 				tabBarStyle: Platform.select({
 					ios: {
 						// Use a transparent background on iOS to show the blur effect
@@ -38,8 +41,9 @@ export default function TabLayout() {
 				}),
 				headerStyle: {
 					backgroundColor: "rgba(6,117,252,0.4)",
-					position: "absolute",
 				},
+				headerBackButtonDisplayMode: "default",
+				headerBackTitleVisible: true,
 			}}
 		>
 			<Tabs.Screen
@@ -53,6 +57,7 @@ export default function TabLayout() {
 							color={color}
 						/>
 					),
+					
 				}}
 			/>
 			<Tabs.Screen
@@ -62,10 +67,11 @@ export default function TabLayout() {
 					tabBarIcon: ({ color }) => (
 						<FontAwesome6
 							name="add"
-							size={33}
+							size={29}
 							color={color}
 						/>
 					),
+					
 				}}
 			/>
 			<Tabs.Screen
@@ -79,6 +85,7 @@ export default function TabLayout() {
 							color={color}
 						/>
 					),
+					
 				}}
 			/>
 		</Tabs>

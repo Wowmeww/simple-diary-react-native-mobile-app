@@ -7,6 +7,7 @@ import {
 	Text,
 	ImageBackground,
 	View,
+	SafeAreaView
 } from "react-native";
 
 import background from "@/assets/images/diary/background.png";
@@ -26,12 +27,12 @@ const layout = ({ children }) => {
 			}}
 			className="w-full h-full"
 		>
-			<View
-				className="flex-1"
-				style={{ paddingTop: 60, paddingHorizontal: 1 }}
+			<SafeAreaView
+				className="flex-1 bg-white"
+				style={{ marginTop: 60, paddingHorizontal: 1, height: "100%", width: "100%" }}
 			>
 				{children}
-			</View>
+			</SafeAreaView>
 		</ImageBackground>
 	);
 };
