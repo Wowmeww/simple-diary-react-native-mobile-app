@@ -35,7 +35,7 @@ export default function TabLayout() {
 						position: "absolute",
 					},
 					default: {
-						backgroundColor: "rgba(6,117,252,0.4)",
+						backgroundColor: "rgba(6,117,252,0.5)",
 						position: "absolute",
 					},
 				}),
@@ -88,6 +88,7 @@ export default function TabLayout() {
 					
 				}}
 			/>
+			
 		</Tabs>
 	);
 }

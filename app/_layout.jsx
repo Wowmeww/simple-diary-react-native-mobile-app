@@ -41,6 +41,7 @@ export default function RootLayout() {
 					name="(tabs)"
 					options={{ headerShown: false }}
 				/>
+				<Stack.Screen name="edit" />
 				<Stack.Screen name="+not-found" />
 			</Stack>
 			<StatusBar style="auto" />

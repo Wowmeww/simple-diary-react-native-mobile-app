@@ -28,8 +28,8 @@ const layout = ({ children }) => {
 			className="w-full h-full"
 		>
 			<SafeAreaView
-				className="flex-1 bg-white"
-				style={{ marginTop: 60, paddingHorizontal: 1, height: "100%", width: "100%" }}
+				className="flex-1 bg-red-700"
+				style={{ marginTop: 100, paddingHorizontal: 1, height: "100%", width: "100%" }}
 			>
 				{children}
 			</SafeAreaView>

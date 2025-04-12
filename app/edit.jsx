@@ -4,7 +4,7 @@ import Layout from "@/components/diary/layout";
 const edit = () => {
   return (
     <Layout>
-			<Text className="text-red-500 text-9xl">Hello</Text>
+			<Text className="text-red-500 text-9xl">Update</Text>
 		</Layout>
   )
 }
