@@ -8,7 +8,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const edit = () => {
 	const [entry, setEntry] = useState(null);
-	const { selected, setSelectedForOption, setIsOptionOpen } =
+	const { selected, setSelectedForOption, } =
 		useContext(GlobalContext);
 	const [title, setTitle] = useState("");
 	const [content, setContent] = useState("");
@@ -110,7 +110,7 @@ const edit = () => {
 		</Layout>
 	);
 	async function handleUpdate() {
-		setProcessing(true);
+		// setProcessing(true);
 		try {
 			if (title === "" || content === "") {
 				setProcessing(false);
@@ -123,8 +123,8 @@ const edit = () => {
 				content: content,
 			};
 			// merge the new entry with object
-			await AsyncStorage.setItem(entry.key, JSON.stringify(updatedEntry));
-			setProcessing(false);
+			await AsyncStorage.setItem(String(entry.key), JSON.stringify(updatedEntry));
+			// setProcessing(false);
 			setSelectedForOption(null);
 			router.navigate("/(tabs)");
 		} catch (error) {

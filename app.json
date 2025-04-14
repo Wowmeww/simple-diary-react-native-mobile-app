@@ -28,7 +28,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/diary/diary_logo.png",
+          "image": "./assets/images/diary/splash.png",
           "imageWidth": "100%",
           "imageHeight": "100%",
           "resizeMode": "cover",

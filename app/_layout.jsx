@@ -14,7 +14,6 @@ import { useColorScheme } from "@/hooks/useColorScheme";
 
 import "@/global.css";
 import { GlobalProvider } from "@/GlobalContext"; 
-import { ImageBackground } from "react-native";
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 

@@ -97,13 +97,14 @@ const create = () => {
 		</Layout>
 	);
 	async function store(title, content) {
-		setProcessing(true);
+		// setProcessing(true);
+		// console.log(title, content);
+		// return;
 		try {
 			if (title === "" || content === "") {
 				setProcessing(false);
 				return;
 			}
-
 			const newKey = await AsyncStorage.getAllKeys().then((keys) => {
 				return keys.length ? Math.max(...keys.map(Number)) + 1 : 1;
 			});
@@ -114,13 +115,14 @@ const create = () => {
 				date: new Date().toISOString(),
 			};
 
-			
+			// console.log(newEntry);
+			// return;
 			// Save the new entry to AsyncStorage
-			await AsyncStorage.setItem(newKey, JSON.stringify(newEntry));
+			await AsyncStorage.setItem(String(newKey), JSON.stringify(newEntry));
 
 			setTitle("");
 			setContent("");
-			setProcessing(false);
+			// setProcessing(false);
 			setSelectedForOption(null);
 			router.navigate("/(tabs)");
 		} catch (error) {
