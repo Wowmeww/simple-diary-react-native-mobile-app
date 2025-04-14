@@ -1,13 +1,10 @@
-import {
-	View,
-	Text,
-	StyleSheet,
-	Alert,
-	TouchableOpacity,
-	Pressable,
-} from "react-native";
-import React, { useState } from "react";
-const card = ({ entry }) => {
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import React, { useContext, useState } from "react";
+import { useRouter } from "expo-router";
+import { GlobalContext } from "@/GlobalContext";
+const card = ({ entry, select }) => {
+	const { setSelected, setIsOptionOpen, setSelectedForOption } = useContext(GlobalContext);
+	const router = useRouter();
 	const date = {
 		year: new Date(entry.value.date).getFullYear(),
 		date: new Date(entry.value.date).getDate(),
@@ -27,8 +24,16 @@ const card = ({ entry }) => {
 		<>
 			<TouchableOpacity
 				style={styles.card}
-				onPress={() => console.log(entry.key)}
-				onLongPress={() => handleLongPress()}
+				onPress={() => {
+					setSelected(entry.key);
+					router.navigate("/edit");
+				}}
+				onLongPress={() => {
+					setSelectedForOption(entry.key);
+					setTimeout(600);
+					setIsOptionOpen(true);
+				}}
+				activeOpacity={0.8}
 			>
 				<View style={styles.date}>
 					<Text style={styles.text.xs}>{date.year}</Text>
@@ -40,19 +45,10 @@ const card = ({ entry }) => {
 					<Text style={styles.text.normal}>{content}</Text>
 				</View>
 			</TouchableOpacity>
-			
 		</>
 	);
-
-	function handleLongPress() {
-		console.log("Long Pressed", entry.key);
-		// Option Modal
-		return (
-			// Overlay
-			<View className="absolute inset-0 bg-black/50 z-10"></View>
-		);
-	}
 };
+
 const styles = StyleSheet.create({
 	card: {
 		backgroundColor: "#FD20D465",

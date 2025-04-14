@@ -5,7 +5,6 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/diary/diary_logo.png",
-    // "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -16,7 +15,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/diary/splash.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.wowmeww.diaryapp"
     },
     "web": {
       "bundler": "metro",
@@ -28,16 +28,24 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/diary/splash.png",
-          // "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
+          "image": "./assets/images/diary/diary_logo.png",
+          "imageWidth": "100%",
+          "imageHeight": "100%",
+          "resizeMode": "cover",
           "backgroundColor": "#ffffff"
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "8b5bde3e-afae-4189-8136-2a2dd7612fc2"
+      }
     }
   }
 }

@@ -13,8 +13,8 @@ import "react-native-reanimated";
 import { useColorScheme } from "@/hooks/useColorScheme";
 
 import "@/global.css";
+import { GlobalProvider } from "@/GlobalContext"; 
 import { ImageBackground } from "react-native";
-
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
@@ -35,16 +35,24 @@ export default function RootLayout() {
 	}
 
 	return (
-		<>
+		<GlobalProvider>
 			<Stack>
 				<Stack.Screen
 					name="(tabs)"
 					options={{ headerShown: false }}
 				/>
-				<Stack.Screen name="edit" />
+				<Stack.Screen name="edit" options={{
+					title: "Edit",
+					headerStyle: {
+						backgroundColor: "rgba(6,117,252,0.5)",
+					},
+					headerTintColor: "#fff",
+					headerTitleAlign: "center",
+					headerTransparent: true
+				}} />
 				<Stack.Screen name="+not-found" />
 			</Stack>
 			<StatusBar style="auto" />
-		</>
+		</GlobalProvider>
 	);
 }
