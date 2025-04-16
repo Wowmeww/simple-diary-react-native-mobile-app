@@ -27,10 +27,16 @@ export default function HomeScreen() {
 			console.error("Error retrieving data", error);
 		}
 	};
+	
 	useEffect(() => {
 		setSelected(null);
 		fetchData();
 	}, [isOptionOpen, selectedForOption]);
+	useEffect(() => {
+		setSelected(null);
+		fetchData();
+	}, []);
+	fetchData();
 
 	return (
 		<>
